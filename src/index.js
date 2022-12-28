@@ -4,6 +4,10 @@ const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
 const breedUrl = 'https://dog.ceo/api/breeds/list/all'
 const imgDiv = document.createElement('div')
 
+function changeColor() {
+  this.style.color = "red";
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   const dogImgs = fetch(imgUrl)
@@ -35,9 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const breedLI = document.createElement('li')
         breedLI.id = breed
         breedLI.textContent = breed
+        //onClick change color
+        breedLI.addEventListener('click', changeColor)
         breedList.appendChild(breedLI)
       }
 
     })
     .catch(err => console.error(err.message))
+
+    // Once all of the breeds are rendered in the <ul>, add JavaScript so that, when the user clicks on any one of the <li>s, the font color of that <li> changes. This can be a color of your choosing.
+
 })
